@@ -210,3 +210,36 @@ function submitElligible(){
 }
 
 
+
+function goToNext(firstDisplay, secondDisplay){
+    var x = document.getElementById(firstDisplay);
+    var y = document.getElementById(secondDisplay);
+    var z = document.getElementById('header');
+    var tHD = document.getElementById('thirdHeader');
+    
+    if(secondDisplay == 'third'){
+        z.style.display = 'none';
+    }
+
+    if(secondDisplay == 'fourth'){
+    var tHD = document.getElementById('thirdHeader');
+        tHD.style.display = 'none';
+    }
+    x.style.display = 'none';
+    y.style.display = 'block';
+}
+
+
+function goBack(firstDisplay, secondDisplay, firstHeader, SecondHeader){
+    var x = document.getElementById(firstDisplay);
+    var y = document.getElementById(secondDisplay);
+    var tHD = document.getElementById(firstHeader);
+    var fHD = document.getElementById(SecondHeader);
+    
+    x.style.display = 'none';
+    tHD.style.display = 'none';
+    y.style.display = 'block';
+    fHD.style.display = 'block';
+}
+
+

@@ -105,6 +105,83 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+  
+  .buttontxt{
+    padding: 0;
+    border: none;
+    background: none;
+    font-weight: bolder;
+    margin-right: 30px;
+    color: rgb(38, 115, 160);
+  }
+
+  .buttonBackTxt{
+    padding: 0;
+    border: none;
+    background: none;
+    font-weight: bolder;
+    margin-right: 30px;
+    color: rgb(10, 10, 10);
+  }
+
+
+  .tableTd{
+    border: 1px solid #dddddd; 
+    text-align: left; 
+    padding: 8px;
+  }
+
+  .txtpad{
+    width: 100%;
+  }
+
+  .tableBd{
+    border: 1px solid #272b30; 
+    border-bottom-width: 2px;
+  }
+
+  .tableHd{
+    border-collapse: collapse; 
+    border: 1px solid #272b30; 
+    border-bottom-width: 2px; 
+    width: 100%; 
+    margin-bottom: 1rem; 
+    background-color: transparent;
+  }
+    
+  .buttontxt, .buttonBackTxt:hover {
+    text-decoration: underline;
+  }
+
+  li {
+    margin-right: 5px;
+    display: table-row;
+  }
+  
+  li * {
+    display: table-cell;
+    padding: 0.5em;
+  }
+  
+  input {
+    background-color: blue;
+    position: relative;
+  }
+  
+  .vertical-list {}
+  
+  li {
+    list-style: none;
+  }
+  
+  .horizontal-list {
+    display: inline;
+  }
+
+  .entity{
+    margin-top: 10px;
+    margin-bottom: 12px;
+  }
 
   .lblQuestion{
     
