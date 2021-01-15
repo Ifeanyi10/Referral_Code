@@ -13,7 +13,7 @@ function validateEmail(){
             bt.disabled = false;
         }else{
             bt.disabled = true;
-            $("#divCheckEmailMatch").html("Ensure you entered you mobile number");
+            $("#divCheckEmailMatch").html("Ensure you entered your mobile number");
         }
         
     }

@@ -243,3 +243,15 @@ function goBack(firstDisplay, secondDisplay, firstHeader, SecondHeader){
 }
 
 
+function displayField(checkbox, checkbox2, divName){
+    var x = document.getElementById(checkbox);
+    var y = document.getElementById(checkbox2);
+    var z = document.getElementById(divName);
+
+    if(x.checked){
+        z.style.display = 'block';
+    }else{
+        z.style.display = 'none';
+    }
+}
+

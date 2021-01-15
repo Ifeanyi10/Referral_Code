@@ -26,7 +26,21 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link href="css/style.css" rel="stylesheet">
+    <link href="js/sweetalert/css/sweetalert.css" rel="stylesheet">
 <!--===============================================================================================-->
+
+<script language="javascript">
+
+    window.onload = function getPatientCode(){
+                        var lastPart = window.location.href.split("code").pop();
+                        //var lastPart = 'ZPQr8x5PzDFLh4yY2YJoQStq74hT50i5TxRf/1QRyI0';
+                        window.localStorage.setItem("patientToken", lastPart);
+                        //alert(lastPart);
+                        
+                    }
+
+      </script>
+
 </head>
 <body>
 	
@@ -46,7 +60,7 @@
                     <!-- <div class="card"> -->
                             
                             <div class="basic-form m-b-30">
-                                <form id="myConsentForm">
+                                <form id="myBaselineForm">
                                     
 
                                     <div id="header">
@@ -395,13 +409,13 @@
 
                                                         <tr> 
                                                             <td class="tableTd"><label><span class="required">*</span>I felt I was close to panic</label></td>
-                                                            <td class="tableTd"><input type="radio" name="panic" value="0" id="panic1"
+                                                            <td class="tableTd"><input type="radio" name="panics" value="0" id="panic1"
                                                                 title="strongly disagree" /></td>
-                                                            <td class="tableTd"><input type="radio" name="panic" value="1" id="panic2"
+                                                            <td class="tableTd"><input type="radio" name="panics" value="1" id="panic2"
                                                                         title="somewhat disagree" /></td>
-                                                            <td class="tableTd"><input type="radio" name="panic" value="2" id="panic3"
+                                                            <td class="tableTd"><input type="radio" name="panics" value="2" id="panic3"
                                                                         title="agree" /></td>
-                                                            <td class="tableTd"><input type="radio" name="panic" value="3" id="panic4"
+                                                            <td class="tableTd"><input type="radio" name="panics" value="3" id="panic4"
                                                                      title="strongly agree" /></td>
                                                         </tr>
 
@@ -535,7 +549,7 @@
                                                     
                                                     <div class="hidden" id="divCig">
                                                         <label>How much and how often?</label>
-                                                        <input type="text" class="form-control txtpad" id="drinkTxt" placeholder="E.g. half a pack of cigarettes per day">
+                                                        <input type="text" class="form-control txtpad" id="cigTxt" placeholder="E.g. half a pack of cigarettes per day">
                                                     </div>
                                                 </div>
 
@@ -552,18 +566,18 @@
                                                     
                                                     <div class="hidden" id="divCaf">
                                                         <label>How much per day?</label>
-                                                        <input type="text" class="form-control txtpad" id="drinkTxt" placeholder="Please enter how many here">
+                                                        <input type="text" class="form-control txtpad" id="caffTxt" placeholder="Please enter how much per day here">
                                                     </div>
                                                 </div>
 
                                                 <div class="entity">
                                                     <label>Have you participated in cognitive behavioral interventions for insomnia in the past?</label>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="checkbox-behave" value="Yes" name="caf">
+                                                        <input type="radio" class="custom-control-input" id="checkbox-behave" value="true" name="partcip">
                                                         <label class="custom-control-label" for="checkbox-behave">Yes</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="checkbox-behave2" value="No" name="caf">
+                                                        <input type="radio" class="custom-control-input" id="checkbox-behave2" value="false" name="partcip">
                                                         <label class="custom-control-label" for="checkbox-behave2">No</label>
                                                     </div>
                                                     
@@ -642,13 +656,14 @@
 
                                                 <div class="entity">
                                                     <label>What is your current employment status? Please check all that apply.</label>
+                                                    
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checkbox-1" value="Working– Full Time" name="employ">
-                                                        <label class="custom-control-label" for="checkbox-1">Working– Full Time</label>
+                                                        <input type="checkbox" class="custom-control-input" id="checkbox-21" value="Working Full Time" name="employ">
+                                                        <label class="custom-control-label" for="checkbox-21">Working Full Time</label>
                                                     </div>
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="checkbox-2" value="Working– Part Time" name="employ">
-                                                        <label class="custom-control-label" for="checkbox-2">Working– Part Time</label>
+                                                        <input type="checkbox" class="custom-control-input" id="checkbox-22" value="Working Part Time" name="employ">
+                                                        <label class="custom-control-label" for="checkbox-22">Working Part Time</label>
                                                     </div>
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" class="custom-control-input" id="checkbox-3" value="Unemployed" name="employ">
@@ -678,7 +693,7 @@
 
                                                     <div class="hidden" id="divEmploy">
                                                         <label>If Other, please specify</label>
-                                                        <input type="text" class="form-control txtpad" id="schOtherTxt" placeholder="Please specify">
+                                                        <input type="text" class="form-control txtpad" id="employOtherTxt" placeholder="Please specify">
                                                     </div>
 
                                                     <div class="custom-control custom-checkbox">
@@ -742,7 +757,7 @@
                                                     
                                                     <div class="hidden" id="divborn">
                                                         <label>in what country were you born?</label>
-                                                        <input type="text" class="form-control txtpad" id="bornTxt" placeholder="Please enter how many here">
+                                                        <input type="text" class="form-control txtpad" id="bornTxt" placeholder="Please specify">
                                                     </div>
                                                 </div>
 
@@ -843,13 +858,13 @@
                                                         <label class="custom-control-label" for="checkbox-mar4">Widow or widower</label>
                                                     </div>
                                                     <div class="custom-control custom-radio">
-                                                        <input type="radio" class="custom-control-input" id="checkbox-mar5" value="Prefer not to say" name="income">
+                                                        <input type="radio" class="custom-control-input" id="checkbox-mar5" value="Prefer not to say" name="marital">
                                                         <label class="custom-control-label" for="checkbox-mar5">Prefer not to say</label>
                                                     </div>
                                                 </div>
 
                                                 <input type='button' class='buttonBackTxt' onclick="goBack('fifth','fourth', 'fifthHeader','fourthHeader');" value='Back'/>
-                                                <input type='button' class='buttontxt' id="btnSubmitBaseline" value='Submit'/>
+                                                <input type='button' class='buttontxt' id="btnSubmitBaseline" value='Submit Questionnaire'/>
                                             </div>
 
                                         </div>
@@ -899,9 +914,11 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
     <script src="js/MyFunctions.js"></script>
+    <script src="js/baselineAPI.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/gleek.js"></script>
     <script src="js/styleSwitcher.js"></script>
+    <script src="js/sweetalert/js/sweetalert.min.js"></script>
 
 </body>
 </html>
