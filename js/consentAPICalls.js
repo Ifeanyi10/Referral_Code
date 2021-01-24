@@ -5,7 +5,7 @@ function validateEmail(){
     var confirm_password = $("#patEmailVer").val();
     var patientNum = $("#patLNum").val();
     if(password != confirm_password) {
-        $("#divCheckEmailMatch").html("Email do not match!");
+        $("#divCheckEmailMatch").html("Please re-enter your Email address to proceed");
         bt.disabled = true;
     } else {
         $("#divCheckEmailMatch").html(" ");

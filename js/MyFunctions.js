@@ -112,7 +112,8 @@ function checkAgreeConsent(first, second, contAns, formId, checkboxId) {
             x.style.display = 'none';
             y.style.display = 'block'; 
         }else{
-            alert("Please click all box to proceed");
+            //alert("Please click all box to proceed");
+            sweetAlert("Alert!","Please tick all the boxes to proceed","error");
         }
                    
     } 
@@ -240,6 +241,14 @@ function goBack(firstDisplay, secondDisplay, firstHeader, SecondHeader){
     tHD.style.display = 'none';
     y.style.display = 'block';
     fHD.style.display = 'block';
+}
+
+function goBackConsent(firstDisplay, secondDisplay){
+    var x = document.getElementById(firstDisplay);
+    var y = document.getElementById(secondDisplay);
+    
+    x.style.display = 'none';
+    y.style.display = 'block';
 }
 
 
