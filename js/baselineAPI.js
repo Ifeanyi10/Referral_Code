@@ -185,7 +185,7 @@ $(document).ready(function () {
                 );
             }, 
             error: function(msg){
-                sweetAlert("Oops...","Unable to submit your baseline questionnaire! Please try again shortly","error");
+                sweetAlert("Unable to submit your baseline questionnaire","Please try again shortly","error");
             }
         });
     });

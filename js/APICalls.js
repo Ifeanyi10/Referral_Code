@@ -18,18 +18,26 @@
               },
             data: JSON.stringify({"code": refCode, "code1": patName}),
             success: function(result){
+                console.log(result);
                 if(result != null) {
-                    window.localStorage.setItem("patToken", result);
-                    //alert(result);
-                    window.location.href = "eligibility-question.html";
+                    if(result.status == null){
+                        window.localStorage.setItem("patToken", result.token);
+                        window.location.href = "eligibility-question.html";
+                    } else if(result.status.consent == false){
+                        window.localStorage.setItem("patToken", result.token);
+                        window.location.href = "consent.html";
+                    }else{
+                        sweetAlert("You have submitted your consent!","If you are yet login to your patient account, please search for the email sent to you after submitting your consent form to complete your account setup","error");
+                    }
+                    
                 }else{
-                    sweetAlert("Oops...","Invalid referral code or does not match with lastname!","error");
+                    sweetAlert("The referral code you entered does not match with the name provided!","Please confirm the referral code and your given name then try again","error");
                 }
                 
             }, 
             error: function(msg){
                 //$("#errorContainer").html("Incorrect Username or Password");
-                sweetAlert("Oops...","Invalid referral code or does not match with lastname!","error");
+                sweetAlert("The referral code you entered does not match with the name provided!","Please confirm the referral code and your given name then try again","error");
             }
         });
     });

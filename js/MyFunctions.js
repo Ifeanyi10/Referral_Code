@@ -9,7 +9,7 @@ function loadNameValues() {
 }
 
 function notEligibleAlert(alertValue){
-    swal({title: "Oops...", text: alertValue, type: "error"},
+    swal({title: alertValue, text: "", type: "error"},
                 function(){ 
                     window.location.href = "index.html";
                 }
@@ -83,9 +83,10 @@ function hideDispalyConsent(first, second, contAns) {
     var y = document.getElementById(second);
 
     if (document.getElementById(contAns).checked) {
-        x.style.display = 'none';
-        y.style.display = 'block';            
+                    
     } 
+    x.style.display = 'none';
+    y.style.display = 'block';
 }
 
 function hideDispalyConsentAnswer(answerId) {
@@ -99,7 +100,7 @@ function checkAgreeConsent(first, second, contAns, formId, checkboxId) {
     var y = document.getElementById(second);
     var iAgrees = document.forms[formId].elements[checkboxId];
 
-    if (document.getElementById(contAns).checked) {
+    //if (document.getElementById(contAns).checked) {
         var agreeCount = 0;
         
         for (i = 0; i < iAgrees.length; i++) {    
@@ -113,10 +114,10 @@ function checkAgreeConsent(first, second, contAns, formId, checkboxId) {
             y.style.display = 'block'; 
         }else{
             //alert("Please click all box to proceed");
-            sweetAlert("Alert!","Please tick all the boxes to proceed","error");
+            sweetAlert("Cannot Proceed!","Please review all the information, check them off to proceed.","error");
         }
                    
-    } 
+    //} 
 }
 
 function checkAgreement(first, second, contAns, finalAgree) {
@@ -124,7 +125,7 @@ function checkAgreement(first, second, contAns, finalAgree) {
     var y = document.getElementById(second);
     var iAgrees = document.getElementById(finalAgree);
 
-    if (document.getElementById(contAns).checked) {
+    //if (document.getElementById(contAns).checked) {
         x.style.display = 'none';
         y.style.display = 'block'; 
         // if(iAgrees.checked == true){
@@ -133,7 +134,7 @@ function checkAgreement(first, second, contAns, finalAgree) {
         // }else{
         //     alert("Please click Agree Box to proceed");
         // }       
-    } 
+    //} 
 }
 
 function concludeConsent(first) {
@@ -157,8 +158,9 @@ function decideToConsent() {
             text: "You will need to enter your referral code again when you are ready to continue.",
             type: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
+            confirmButtonColor: "#2087c8",
             confirmButtonText: "No, Let me continue now",
+            cancelButtonColor: "#12850e",
             cancelButtonText: "Yes, I will continue later",
             closeOnConfirm: false,
             closeOnCancel: false
@@ -181,6 +183,7 @@ function decideToConsent() {
 function submitElligible(){
     //event.preventDefault();
     var patientToken = window.localStorage.getItem("patToken");
+    console.log(patientToken)
     //var sleepExperience = window.localStorage.getItem("sleepResponse");
     let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/eligibility';
 
@@ -205,7 +208,7 @@ function submitElligible(){
         }, 
         error: function(msg){
             //$("#errorContainer").html("Incorrect Username or Password");
-            sweetAlert("Oops...","An error occurred!","error");
+            sweetAlert("Unable to submit your eligibilty response!","You may have submitted your consent before now.","error");
         }
     });
 }

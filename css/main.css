@@ -34,12 +34,22 @@
 	margin: 0px; 
 	padding: 0px; 
 	box-sizing: border-box;
+  margin-right: 30px;
+  text-align: justify;
 }
 
 body, html {
 	height: 100%;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4A494E;
+  text-align: left;
 	font-family: Poppins-Regular, sans-serif;
+
 }
+
+.colorBackground{background-color: #2087c8;}
 
 /*---------------------------------------------*/
 a {
@@ -59,8 +69,8 @@ a:focus {
 }
 
 a:hover {
-  text-decoration: none;
-  color: #4846ca;
+  text-decoration: underline;
+  color: #0f8ddb;
 }
 a.txt1:hover {
   text-decoration: underline;
@@ -160,9 +170,9 @@ iframe {
 [ Utility ]*/
 .txt1 {
   font-family: Poppins-Regular;
-  font-size: 15px;
-  line-height: 1.4;
-  color: #4846ca;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2087c8;
 }
 
 .txt2 {
@@ -198,7 +208,7 @@ iframe {
 .wrap-login100 {
   width: 670px;
   background-color:rgba(255, 255, 255, 0.9);
-
+  margin-right: 0px;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -258,7 +268,7 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(54,84,99,0.7);
+  background-color: rgba(32,135,200,2.0);
 }
 
 
@@ -314,15 +324,12 @@ iframe {
 
 .label-input100 {
   font-family: Poppins-Regular;
-  font-size: 15px;
-  color: #808080;
   line-height: 1.2;
   text-align: right;
-
   position: absolute;
   top: 14px;
-  left: -105px;
-  width: 80px;
+  left: -125px;
+  width: 120px;
 
 }
 
@@ -342,8 +349,7 @@ iframe {
 /*---------------------------------------------*/
 .input100 {
   font-family: Poppins-Regular;
-  font-size: 15px;
-  color: #555555;
+  font-size: 1.125rem;
   line-height: 1.2;
 
   display: block;
@@ -466,13 +472,14 @@ input.input100 {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  margin-right: 30px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+  background-color: #2087c8;
   border-radius: 25px;
 
   font-family: Poppins-Regular;
-  font-size: 16px;
+  font-size: 1.125rem;
   color: #fff;
   line-height: 1.2;
 
@@ -482,21 +489,36 @@ input.input100 {
   transition: all 0.4s;
 }
 
+.btn2{
+  background-color: #333333;
+}
+
 .login100-form-btn:hover {
   background-color: #333333;
+}
+
+.btn2:hover {
+  background-color: #e73e3e;
 }
 
 
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
-@media (max-width: 576px) {
+@media (min-width: 576px) {
   .login100-form {
     padding: 43px 15px 57px 117px;
   }
+  body, html {
+    font-size: .900rem;
+    line-height: 1rem;
+  }
+  .login100-form-title-1 {
+    font-size: 1.3rem;
+  }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 350px) {
   .login100-form {
     padding: 43px 15px 57px 15px;
   }
@@ -508,6 +530,113 @@ input.input100 {
     left: unset;
     width: 100%;
     padding: 0 5px;
+  }
+  body, html {
+    font-size: .850rem;
+    line-height: 1.2rem;
+  }
+  .consentInfoHeadText{
+    font-size: .900rem;
+  }.consentInfoHeadSmall{
+    font-size: .900rem;
+  }.consentInfoHead{
+    font-size: .900rem;
+  }.consentInfoBodySmall{ 
+    font-size: .900rem;
+  }.consentInfoBody{ 
+    font-size: .900rem;
+  }
+  .login100-form-title-1 {
+    font-size: 1rem;
+  }.input100 {
+    font-size: .950rem;
+    line-height: 1rem;
+  }.txt1{
+    font-size: .730rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .login100-form {
+    padding: 43px 15px 57px 117px;
+  }
+  body, html {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }.consentInfoHeadText{
+    font-size: 1rem;
+  }.consentInfoHeadSmall{
+    font-size: 1rem;
+  }.consentInfoHead{
+    font-size: 1rem;
+  }.consentInfoBodySmall{ 
+    font-size: 1rem;
+  }.consentInfoBody{ 
+    font-size: 1rem;
+  }.input100 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }.txt1{
+    font-size: 1rem;
+  }
+  .login100-form-title-1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .login100-form {
+    padding: 43px 15px 57px 117px;
+  }
+  body, html {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+  }.consentInfoHeadText{
+    font-size: 1.1rem;
+  }.consentInfoHeadSmall{
+    font-size: 1.1rem;
+  }.consentInfoHead{
+    font-size: 1.1rem;
+  }.consentInfoBodySmall{ 
+    font-size: 1.1rem;
+  }.consentInfoBody{ 
+    font-size: 1.1rem;
+  }.input100 {
+    font-size: 1.1rem;
+    line-height: 1rem;
+  }.txt1{
+    font-size: 1.1rem;
+  }
+  .login100-form-title-1 {
+    font-size: 1.56rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login100-form {
+    padding: 43px 15px 57px 117px;
+  }
+  body, html {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }.consentInfoHeadText{
+    font-size: 1.125rem;
+  }.consentInfoHeadSmall{
+    font-size: 1.125rem;
+  }.consentInfoHead{
+    font-size: 1.125rem;
+  }.consentInfoBodySmall{ 
+    font-size: 1.125rem;
+  }.consentInfoBody{ 
+    font-size: 1.125rem;
+  }.input100 {
+    font-size: 1.125rem;
+    line-height: 1rem;
+  }.txt1{
+    font-size: 1.125rem;
+  }
+  .login100-form-title-1 {
+    font-size: 1.56rem;
   }
 }
 

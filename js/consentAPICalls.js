@@ -18,12 +18,105 @@ function validateEmail(){
         
     }
   }
+
+  function isEmail(email) {
+    // eslint-disable-next-line no-useless-escape
+    return RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i).test(email);
+  };
+
+  function isMobile(ph) {
+    var phoneno = /^\+?([1]{1})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if(ph.match(phoneno)){
+        return true;
+    }else{
+        return false;
+    }
+  }
+
  
  $(document).ready(function () {
-
+    $('[data-toggle="tooltip"]').tooltip();
     var bt = document.getElementById('btnConcentSubmit');
     bt.disabled = true;
     $("#patEmailVer, #patLNum").keyup(validateEmail);
+
+
+    //validate provider email
+    $('#patEmail').on('blur', function(e) {
+        var bt = document.getElementById('btnConcentSubmit');
+        // Current email input
+        var currentEmail = e.target.value,
+            $emailNode = $(this),
+            isValid = true;
+
+        // Validate email
+        if (!isEmail(currentEmail)){
+            $("#divCheckEmailMatch").html("Invalid email address. Enter a valid email address");
+            return;
+        }
+
+        let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/checkEmail';
+        $.ajax({
+            url: url,
+            type: 'POST',
+            headers: {
+                'Content-Type': 'application/json', 
+                'Accept': '*/*'
+            },
+            data: JSON.stringify({"code": currentEmail}),
+            success: function(result){
+                console.log(result);
+                // Finally update the state for the current field
+                if (!result) {
+                    $("#divCheckEmailMatch").html("");
+                    $(this).css("border","1px solid #BCBCBC");
+                } else{
+                    $("#divCheckEmailMatch").html("Email address exist");
+                    sweetAlert("Email address exist!","","error");
+                    bt.disabled = true;
+                    $(this).css("border","1px solid red");
+                } 
+                
+            }, 
+            error: function(msg){
+                $("#divCheckEmailMatch").html("Email address exist");
+                sweetAlert("Email address exist!","","error");
+                bt.disabled = true;
+                $(this).css("border","1px solid red");
+            }
+        });
+        
+        // Validate email
+        // if (!isEmail(currentEmail)){
+        //     $("#divCheckEmailMatch").html("Invalid email address pattern");
+        //     bt.disabled = true;
+        //     $(this).css("border","1px solid red");
+        // }else{
+        //     $(this).css("border","1px solid #BCBCBC");
+        // }
+        
+    });
+
+
+    $('#patLNum').on('blur', function(e) {
+        var bt = document.getElementById('btnConcentSubmit');
+        var currentphone = e.target.value,
+            $phNode = $(this),
+            isValid = true;
+        
+        // Validate phone Number
+        if (!isMobile(currentphone)){
+            bt.disabled = true;
+            $("#divCheckEmailMatch").html("Invalid phone number. Enter a valid phone number.");
+            $(this).css("border","1px solid red");
+        }else{
+            bt.disabled = false;
+            $("#divCheckEmailMatch").html(" ");
+            $(this).css("border",".5px solid #BCBCBC");
+        }
+
+    });
+
 
     //Submit Consent
     $('#btnConcentSubmit').on('click', function(event){
@@ -52,7 +145,7 @@ function validateEmail(){
             }, 
             error: function(msg){
                 //$("#errorContainer").html("Incorrect Username or Password");
-                sweetAlert("Oops...","Unable to submit consent!","error");
+                sweetAlert("Unable to submit consent!","Please try again shortly","error");
             }
         });
     });
