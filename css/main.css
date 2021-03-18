@@ -614,7 +614,7 @@ input.input100 {
 
 @media (min-width: 1200px) {
   .login100-form {
-    padding: 43px 15px 57px 117px;
+    padding: 43px 15px 57px 20px;
   }
   body, html {
     font-size: 1.125rem;

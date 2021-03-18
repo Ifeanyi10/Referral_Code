@@ -25,7 +25,8 @@ function validateEmail(){
   };
 
   function isMobile(ph) {
-    var phoneno = /^\+?([1]{1})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    //var phoneno = /^\+?([1]{1})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    var phoneno = /^[+]?[1]?[-. (]?([0-9]{3})[)-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if(ph.match(phoneno)){
         return true;
     }else{
@@ -39,7 +40,7 @@ function validateEmail(){
     var bt = document.getElementById('btnConcentSubmit');
     bt.disabled = true;
     $("#patEmailVer, #patLNum").keyup(validateEmail);
-
+    emailIsElligible = false;
 
     //validate provider email
     $('#patEmail').on('blur', function(e) {
@@ -68,9 +69,11 @@ function validateEmail(){
                 console.log(result);
                 // Finally update the state for the current field
                 if (!result) {
+                    emailIsElligible = true;
                     $("#divCheckEmailMatch").html("");
                     $(this).css("border","1px solid #BCBCBC");
                 } else{
+                    emailIsElligible = false;
                     $("#divCheckEmailMatch").html("Email address exist");
                     sweetAlert("Email address exist!","","error");
                     bt.disabled = true;
@@ -79,6 +82,7 @@ function validateEmail(){
                 
             }, 
             error: function(msg){
+                emailIsElligible = false;
                 $("#divCheckEmailMatch").html("Email address exist");
                 sweetAlert("Email address exist!","","error");
                 bt.disabled = true;
@@ -126,28 +130,34 @@ function validateEmail(){
         var patientToken = window.localStorage.getItem("patToken");
         let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/consent';
 
-        $.ajax({
-            url: url,
-            type: 'POST',
-            headers: {
-                'Content-Type': 'application/json', 
-                'Accept': '*/*',
-                'Authorization': 'Bearer '+ patientToken             
-              },
-            data: JSON.stringify({"email": patEmail, "phoneNumber": patientNum}),
-            success: function(result){
-                swal({title: "Health ensuite welcomes you!!", text: "Thank you for your time. An email will be sent to you within 2 business days confirming your consent with the study information attached.", type: "success"},
-                function(){ 
-                    window.location.href = "index.html";
+        if(emailIsElligible == true){
+            $.ajax({
+                url: url,
+                type: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 
+                    'Accept': '*/*',
+                    'Authorization': 'Bearer '+ patientToken             
+                },
+                data: JSON.stringify({"email": patEmail, "phoneNumber": patientNum}),
+                success: function(result){
+                    swal({title: "Health ensuite welcomes you!!", text: "Thank you for your time. An email will be sent to you within 2 business days confirming your consent with the study information attached.", type: "success"},
+                    function(){ 
+                        window.location.href = "index.html";
+                    }
+                    );
+                    
+                }, 
+                error: function(msg){
+                    //$("#errorContainer").html("Incorrect Username or Password");
+                    sweetAlert("Unable to submit consent!","Please try again shortly","error");
                 }
-                );
-                
-            }, 
-            error: function(msg){
-                //$("#errorContainer").html("Incorrect Username or Password");
-                sweetAlert("Unable to submit consent!","Please try again shortly","error");
-            }
-        });
+            });
+        }else{
+            sweetAlert("Email address exist!","Please use another email address","error");
+        }
+
+
     });
 
 

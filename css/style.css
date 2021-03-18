@@ -105,6 +105,27 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+  .tooltip {
+    padding: 0.25rem 0.5rem;
+    color: #fff;
+    text-align: justify!important;
+    background-color: #2087c8!important;
+    border-radius: 0.50rem;
+  }
+
+  .tooltip-inner {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    color: #fff;
+    text-align: left!important;
+    background-color: #2087c8!important;
+    border-radius: 0.50rem;
+  }
+
+  .tooltip.show{
+    text-align:left;
+  }
+
   .buttonBackTxt, .buttontxt{
     display: inline-block;
     font-weight: 400;
