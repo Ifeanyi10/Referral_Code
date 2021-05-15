@@ -186,6 +186,10 @@ html {
     margin-bottom: 1rem; 
     background-color: transparent;
   }
+
+  .required{
+    color: red;
+  }
     
   .buttontxt, .buttonBackTxt:hover {
     text-decoration: underline;
@@ -233,8 +237,8 @@ html {
   }
 
   .scrollit {
-    overflow:scroll;
-    height:250px;
+    overflow:auto;
+    max-height:250px;
     padding: 8px;
   }
 
@@ -1984,8 +1988,8 @@ textarea.form-control {
     box-shadow: 0 0 0 0.2rem rgba(36, 160, 218, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #2087c8;
-    border-color: #2087c8; }
+    background-color: #bbc7cf;
+    border-color: #bbc7cf; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;

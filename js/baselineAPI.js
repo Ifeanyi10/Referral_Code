@@ -1,3 +1,5 @@
+var urlDomain = 'http://health001-env.eba-v5mudubf.us-east-2.elasticbeanstalk.com/';
+
 function getQuestionValues(formID, elementName) {
     var abouts = document.forms[formID].elements[elementName];
     var aboutInfos = 0; 
@@ -123,9 +125,9 @@ $(document).ready(function () {
         var living_in_Canada = getMultipleCheckedValues('myBaselineForm', 'race');
         var current_marital_status = getCheckedValues('myBaselineForm', 'marital');
 
-        let authToken = window.localStorage.getItem("patientToken");
+        let authToken = window.localStorage.getItem("patientBaselineToken");
         //let authToken = 'Z3a6OQ+aLlcfHdMGSq10wLMvbKEIrAOuTRAU0YplEnY=';
-        let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/baseline';
+        let url = urlDomain + 'insomnia/v1/patient/baseline';
         $.ajax({
             url: url,
             type: 'POST',
@@ -178,6 +180,7 @@ $(document).ready(function () {
                 }),
             success: function(result){
                 console.log(result);
+                console.log("Baseline Token: " + authToken);
                 swal({title: "Thanks!", text: "Your Baseline Questionnaire Has Been Submitted!", type: "success"},
                 function(){ 
                     window.location.href = "baseline-completed.html";
@@ -186,7 +189,10 @@ $(document).ready(function () {
             }, 
             error: function(msg){
                 sweetAlert("Unable to submit your baseline questionnaire","Please try again shortly","error");
+                console.log("Baseline Token: " + authToken);
+                //sweetAlert("Token!", authToken, "info");
             }
+            
         });
     });
 

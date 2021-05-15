@@ -1,3 +1,4 @@
+var urlDomain = window.localStorage.getItem("urlDomain");
 
 function validateEmail(){
     var bt = document.getElementById('btnConcentSubmit');
@@ -18,6 +19,23 @@ function validateEmail(){
         
     }
   }
+
+  var radioState = false;
+    function saveNotShare(element){
+        if(radioState == false) {
+            check();
+            radioState = true;
+        }else{
+            uncheck();
+            radioState = false;
+        }
+    }
+    function check() {
+        document.getElementById("doNotShare").checked = true;
+    }
+    function uncheck() {
+        document.getElementById("doNotShare").checked = false;
+    }
 
   function isEmail(email) {
     // eslint-disable-next-line no-useless-escape
@@ -56,7 +74,7 @@ function validateEmail(){
             return;
         }
 
-        let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/checkEmail';
+        let url = urlDomain + 'insomnia/v1/patient/checkEmail';
         $.ajax({
             url: url,
             type: 'POST',
@@ -128,7 +146,7 @@ function validateEmail(){
         var patEmail = document.getElementById('patEmail').value;
         var patientNum = document.getElementById('patLNum').value;
         var patientToken = window.localStorage.getItem("patToken");
-        let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/consent';
+        let url = urlDomain + 'insomnia/v1/patient/consent';
 
         if(emailIsElligible == true){
             $.ajax({
@@ -141,7 +159,7 @@ function validateEmail(){
                 },
                 data: JSON.stringify({"email": patEmail, "phoneNumber": patientNum}),
                 success: function(result){
-                    swal({title: "Health ensuite welcomes you!!", text: "Thank you for your time. An email will be sent to you within 2 business days confirming your consent with the study information attached.", type: "success"},
+                    swal({title: "Health ensuite welcomes you!", text: "Thank you for your time. An email will be sent to you within 2 business days confirming your consent with the study information attached.", type: "success"},
                     function(){ 
                         window.location.href = "index.html";
                     }

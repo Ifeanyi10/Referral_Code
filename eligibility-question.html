@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="images/icons/logo.png"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -36,23 +36,25 @@
 			<div class="wrap-login100">
 				<div class="login100-form-title" >
 					<span class="login100-form-title-1">
-						Insomnia Eligibilty Question
+						Your eligibility for this Study
 					</span>
 				</div>
-
+                
                 <div class="login100-form2">
 
                     <!-- <div class="card"> -->
                             
                             <div class="basic-form m-b-70">
                                 <form class="login100-form2 validate-form" id="formEligible">
-                                    
+
+                                    <div class="scrollit">
+
                                     <div class="form-group" id="firstQ">
-                                        <label class="lblQuestion">Are you 18 years old or older?</label><br/>
+                                        <label class="lblQuestion">Are you 18 years old or older? </label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('firstQ','secondQ','disqualify1','olderYes','olderNo');" id="olderYes" value="prescYes" name="optradio"> Yes</label>
+                                            <input type="radio" onclick="hideDispaly1('firstQ','secondQ','disqualify1','olderYes','olderNo');" id="olderYes" value="prescYes" name="optradio"> Yes</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('firstQ','secondQ','disqualify1','olderYes','olderNo');" id="olderNo" value="prescNo" name="optradio"> No</label>
+                                            <input type="radio" onclick="hideDispaly1('firstQ','secondQ','disqualify1','olderYes','olderNo');" id="olderNo" value="prescNo" name="optradio"> No</label>
                                     </div>
 
                                     <div class="form-group hidden" id="disqualify1">
@@ -63,13 +65,13 @@
                                     </div>
 
                                     <div class="form-group hidden" id="secondQ">
-                                        <label class="lblQuestion">Do you have regular access to an Internet connected device (e.g., tablet, computer, smartphone)?</label><br/>
+                                        <label class="lblQuestion">Do you have regular access to an internet connected device (e.g., tablet, computer, smartphone)?</label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('secondQ','thirdQ','disqualify2','internetYes','internetNo');" id="internetYes" name="optradio"> Yes</label>
+                                            <input type="radio" onclick="hideDispaly2('secondQ','thirdQ','disqualify2','internetYes','internetNo');" id="internetYes" name="optradio2"> Yes</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('secondQ','thirdQ','disqualify2','internetYes','internetNo');" id="internetNo" name="optradio"> No</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('secondQ','firstQ');" value='Back'/>
+                                            <input type="radio" onclick="hideDispaly2('secondQ','thirdQ','disqualify2','internetYes','internetNo');" id="internetNo" name="optradio2"> No</label>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('secondQ','firstQ');" value='Back'/> -->
                                     </div>
 
                                     <div class="form-group hidden" id="disqualify2">
@@ -80,21 +82,21 @@
                                     </div>
 
                                     <div class="form-group hidden" id="thirdQ">
-                                        <label class="lblQuestion">Have you experienced any of the following at least 3 nights per week in the last 3 months?</label><br/>
+                                        <label class="lblQuestion">Have you experienced any of the following problems at least 3 nights per week in the last 3 months?</label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="symptomHideDispaly();" id="symp1" value="It takes more than 30 minutes for you to fall asleep after you get into bed at night." name="optSleep"> It takes more than 30 minutes for you to fall asleep after you get into bed at night.</label>
+                                            <input type="radio" onclick="symptomHideDispaly();" id="symp1" value="It takes more than 30 minutes for you to fall asleep after you get into bed at night." name="optSleep"> It takes more than 30 minutes for me to fall asleep after I get into bed at night.</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="symptomHideDispaly();" id="symp2" value="You wake up in the middle of the night and stay awake for more than 30 minutes." name="optSleep"> You wake up in the middle of the night and stay awake for more than 30 minutes.</label>
+                                            <input type="radio" onclick="symptomHideDispaly();" id="symp2" value="You wake up in the middle of the night and stay awake for more than 30 minutes." name="optSleep"> I wake up in the middle of the night and stay awake for more than 30 minutes.</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="symptomHideDispaly();" id="symp3" value="You get less than 5 hours of sleep per night." name="optSleep"> You get less than 5 hours of sleep per night.</label>
+                                            <input type="radio" onclick="symptomHideDispaly();" id="symp3" value="You get less than 5 hours of sleep per night." name="optSleep"> I get less than 5 hours of sleep per night.</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="symptomHideDispaly();" id="symp4" value="Your difficulty sleeping is causing you a lot of distress." name="optSleep"> Your difficulty sleeping is causing you a lot of distress.</label>
+                                            <input type="radio" onclick="symptomHideDispaly();" id="symp4" value="Your difficulty sleeping is causing you a lot of distress." name="optSleep"> My difficulty sleeping is causing me a lot of distress.</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="symptomHideDispaly();" id="symp5" value="Your difficulty sleeping has impaired your ability to work or affected your relationships with friends and family." name="optSleep"> Your difficulty sleeping has impaired your ability to work or affected your relationships with friends and family.</label>
+                                            <input type="radio" onclick="symptomHideDispaly();" id="symp5" value="Your difficulty sleeping has impaired your ability to work or affected your relationships with friends and family." name="optSleep"> My difficulty sleeping has impaired my ability to work or affected my relationships with friends and family.</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="symptomHideDispaly();" id="noSymp" value="bad" name="optSleep"> No symptoms.</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('thirdQ','secondQ');" value='Back'/>
+                                            <input type="radio" onclick="symptomHideDispaly();" id="noSymp" value="bad" name="optSleep"> I have not experienced any of these symptoms for at least 3 nights per week in the last 3 months.</label>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('thirdQ','secondQ');" value='Back'/> -->
                                     </div>
 
                                     <div class="form-group hidden" id="disqualify3">
@@ -106,13 +108,13 @@
 
 
                                     <div class="form-group hidden" id="fourthQ">
-                                        <label class="lblQuestion">Do you regularly work at night (i.e., nightshifts or overtime at least 3 nights per week)?</label><br/>
+                                        <label class="lblQuestion">Do you regularly work at night (i.e., night shifts or overtime) at least 3 nights per week?</label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('fourthQ','fifthQ','disqualify4','workNo','workYes');" id="workYes" name="optradio"> Yes</label>
+                                            <input type="radio" onclick="hideDispaly4('fourthQ','fifthQ','disqualify4','workNo','workYes');" id="workYes" name="optradio4"> Yes</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('fourthQ','fifthQ','disqualify4','workNo','workYes');" id="workNo" name="optradio"> No</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('fourthQ','thirdQ');" value='Back'/>
+                                            <input type="radio" onclick="hideDispaly4('fourthQ','fifthQ','disqualify4','workNo','workYes');" id="workNo" name="optradio4"> No</label>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('fourthQ','thirdQ');" value='Back'/> -->
                                     </div>
 
                                     <div class="form-group hidden" id="disqualify4">
@@ -125,22 +127,22 @@
                                     <div class="form-group hidden" id="fifthQ">
                                         <label class="lblQuestion">Do you expect to be working at night regularly in the next 3 months (i.e., nightshifts or overtime at least 3 nights per week)?</label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('fifthQ','sixthQ','disqualify4','nightNo','nightYes');" id="nightYes" name="optradio"> Yes</label>
+                                            <input type="radio" onclick="hideDispaly5('fifthQ','sixthQ','disqualify4','nightNo','nightYes');" id="nightYes" name="optradio5"> Yes</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('fifthQ','sixthQ','disqualify4','nightNo','nightYes');" id="nightNo" name="optradio"> No</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('fifthQ','fourthQ');" value='Back'/>
+                                            <input type="radio" onclick="hideDispaly5('fifthQ','sixthQ','disqualify4','nightNo','nightYes');" id="nightNo" name="optradio5"> No</label>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('fifthQ','fourthQ');" value='Back'/> -->
                                     </div>
 
 
                                     <div class="form-group hidden" id="sixthQ">
                                         <label class="lblQuestion">Are you currently pregnant or trying to become pregnant?</label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('sixthQ','seventhQ','disqualify6','pregnantNo','pregnantYes');" id="pregnantYes" name="optradio"> Yes</label>
+                                            <input type="radio" onclick="hideDispaly6('sixthQ','seventhQ','disqualify6','pregnantNo','pregnantYes');" id="pregnantYes" name="optradio6"> Yes</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('sixthQ','seventhQ','disqualify6','pregnantNo','pregnantYes');" id="pregnantNo" name="optradio"> No</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('sixthQ','fifthQ');" value='Back'/>
+                                            <input type="radio" onclick="hideDispaly6('sixthQ','seventhQ','disqualify6','pregnantNo','pregnantYes');" id="pregnantNo" name="optradio6"> No</label>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('sixthQ','fifthQ');" value='Back'/> -->
                                     </div>
 
                                     <div class="form-group hidden" id="disqualify6">
@@ -153,16 +155,16 @@
                                     <div class="form-group hidden" id="seventhQ">
                                         <label class="lblQuestion">Are you a primary caregiver for a child who is less than one year old?</label><br/>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('seventhQ','submit','disqualify6','childNo','childYes');" id="childYes" name="optradio"> Yes</label>
+                                            <input type="radio" onclick="hideDispaly7('seventhQ','submit','disqualify6','childNo','childYes');" id="childYes" name="optradio7"> Yes</label>
                                         <label class="radio-inline mr-3">
-                                            <input type="radio" onclick="hideDispaly('seventhQ','submit','disqualify6','childNo','childYes');" id="childNo" name="optradio"> No</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('seventhQ','sixthQ');" value='Back'/>
+                                            <input type="radio" onclick="hideDispaly7('seventhQ','submit','disqualify6','childNo','childYes');" id="childNo" name="optradio7"> No</label>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('seventhQ','sixthQ');" value='Back'/> -->
                                     </div>
 
                                     <div class="form-group hidden" id="submit">
                                        
-                                        <label class="lblQuestion">Thank you for answering our questions. You may be eligible for the Health enSuite Insomnia Study.</label>
+                                        <label class="lblQuestion">Thank you for answering our questions. You are eligible for the Health enSuite Insomnia Study.</label>
                                         <label class="lblQuestion">The next step involves learning about the study and making a decision about whether you would like to participate.</label>
                                         <label class="lblQuestion p-b-40">This informed consent process may take up to 30 minutes to complete.</label><br/>
                                         
@@ -171,12 +173,14 @@
                                             <input type="radio" onclick="decideToConsent();" id="begin" name="optradio"> I am ready to begin the online consent process.  </label>
                                         <label class="radio-inline mr-3">
                                             <input type="radio" onclick="decideToConsent();" id="wait" name="optradio"> I would like to complete this step at another time</label>
-                                        </br></br>
-                                        <input type='button' class='btn-secondary' onclick="goBackConsent('submit','seventhQ');" value='Back'/>
+                                        <!-- </br></br>
+                                        <input type='button' class='btn-secondary' onclick="goBackConsent('submit','seventhQ');" value='Back'/> -->
                                     </div>
 
                                     <div class="form-group hidden" id="waitInfo">
                                         <label class="lblQuestion">You will need to enter your referral code again when you are ready to continue.</label>
+                                    </div>
+
                                     </div>
 
                                 </form>
@@ -187,7 +191,7 @@
                     <div class="flex-sb-m w-full p-b-10">
                         <div class="contact100-form-checkbox">
                             <a href="index.html" class="txt1">
-                                <strong>I do not want to contnue</strong>
+                                <strong>I do not want to continue.</strong>
                             </a>
                         </div>
 

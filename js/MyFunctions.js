@@ -1,3 +1,4 @@
+var urlDomain = window.localStorage.getItem("urlDomain");
 
 function loadNameValues() {
     //var inputFirstName = $.session.get('firstName');
@@ -11,39 +12,234 @@ function loadNameValues() {
 function notEligibleAlert(alertValue){
     swal({title: alertValue, text: "", type: "error"},
                 function(){ 
-                    window.location.href = "index.html";
+                    //window.location.href = "index.html";
                 }
                 );
 }
 
-function hideDispaly(firstQ, secondQ, disqualify1, yesAns, noAns) {
+function hideDispaly1(firstQ, secondQ, disqualify1, yesAns, noAns) {
     var x = document.getElementById(firstQ);
     var y = document.getElementById(secondQ);
     var z = document.getElementById(disqualify1);
 
     if (document.getElementById(yesAns).checked) {
-        x.style.display = 'none';
+        //x.style.display = 'none';
         y.style.display = 'block'; 
+        $('input[name=optradio2]').prop("checked",false);
+
+        document.getElementById('thirdQ').style.display = 'none';     
+        $('input[name=optSleep]').prop("checked",false); 
+
+        document.getElementById('fourthQ').style.display = 'none';     
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
         z.style.display = 'none';            
     } else if (document.getElementById(noAns).checked){
+
         if(disqualify1 == 'disqualify1'){
             notEligibleAlert('You must be 18 years old or older to participate in this study.');
         }
+        $('input[name=optradio]').prop("checked",false);
 
-        else if(disqualify1 == 'disqualify2'){
-            notEligibleAlert('To access the Health enSuite Insomnia program you need regular access to a device with an internet connection.');
-        }
+        document.getElementById('secondQ').style.display = 'none';   
+        $('input[name=optradio2]').prop("checked",false);
 
-        else if(disqualify1 == 'disqualify4'){
-            notEligibleAlert('Health enSuite Insomnia is not designed for sleep problems related changing work schedules or shift work.');
-        }
+        document.getElementById('thirdQ').style.display = 'none';     
+        $('input[name=optSleep]').prop("checked",false); 
 
-        else if(disqualify1 == 'disqualify6'){
-            notEligibleAlert('Health enSuite Insomnia is not designed to address sleep disturbances related to pregnancy or caring for an infant.');
-        }
+        document.getElementById('fourthQ').style.display = 'none';     
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
 
     }
 }
+
+
+function hideDispaly2(firstQ, secondQ, disqualify1, yesAns, noAns) {
+    var x = document.getElementById(firstQ);
+    var y = document.getElementById(secondQ);
+    var z = document.getElementById(disqualify1);
+
+    if (document.getElementById(yesAns).checked) {
+        //x.style.display = 'none';
+        y.style.display = 'block'; 
+        $('input[name=optSleep]').prop("checked",false);
+
+        document.getElementById('fourthQ').style.display = 'none';     
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+        z.style.display = 'none';            
+    } else if (document.getElementById(noAns).checked){
+     
+        if(disqualify1 == 'disqualify2'){
+            notEligibleAlert('To access the Health enSuite Insomnia program you need regular access to a device with an internet connection.');
+        }
+
+        $('input[name=optradio2]').prop("checked",false); 
+
+        document.getElementById('thirdQ').style.display = 'none';     
+        $('input[name=optSleep]').prop("checked",false); 
+
+        document.getElementById('fourthQ').style.display = 'none';     
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+    }
+}
+
+
+function hideDispaly4(firstQ, secondQ, disqualify1, yesAns, noAns) {
+    var x = document.getElementById(firstQ);
+    var y = document.getElementById(secondQ);
+    var z = document.getElementById(disqualify1);
+
+    if (document.getElementById(yesAns).checked) {
+        //x.style.display = 'none';
+        y.style.display = 'block'; 
+           
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+        z.style.display = 'none';            
+    } else if (document.getElementById(noAns).checked){
+     
+        if(disqualify1 == 'disqualify4'){
+            notEligibleAlert('Health enSuite Insomnia is not designed for sleep problems related changing work schedules or shift work.');
+        }
+    
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+    }
+}
+
+
+function hideDispaly5(firstQ, secondQ, disqualify1, yesAns, noAns) {
+    var x = document.getElementById(firstQ);
+    var y = document.getElementById(secondQ);
+    var z = document.getElementById(disqualify1);
+
+    if (document.getElementById(yesAns).checked) {
+        //x.style.display = 'none';
+        y.style.display = 'block'; 
+               
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+        z.style.display = 'none';            
+    } else if (document.getElementById(noAns).checked){
+     
+        if(disqualify1 == 'disqualify4'){
+            notEligibleAlert('Health enSuite Insomnia is not designed for sleep problems related changing work schedules or shift work.');
+        }
+       
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+    }
+}
+
+function hideDispaly6(firstQ, secondQ, disqualify1, yesAns, noAns) {
+    var x = document.getElementById(firstQ);
+    var y = document.getElementById(secondQ);
+    var z = document.getElementById(disqualify1);
+
+    if (document.getElementById(yesAns).checked) {
+        //x.style.display = 'none';
+        y.style.display = 'block'; 
+                   
+        $('input[name=optradio7]').prop("checked",false);
+
+        z.style.display = 'none';            
+    } else if (document.getElementById(noAns).checked){
+     
+        if(disqualify1 == 'disqualify6'){
+            notEligibleAlert('Health enSuite Insomnia is not designed to address sleep disturbances related to pregnancy or caring for an infant.');
+        }
+            
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
+    }
+}
+
+function hideDispaly7(firstQ, secondQ, disqualify1, yesAns, noAns) {
+    var x = document.getElementById(firstQ);
+    var y = document.getElementById(secondQ);
+    var z = document.getElementById(disqualify1);
+
+    if (document.getElementById(yesAns).checked) {
+        //x.style.display = 'none';
+        y.style.display = 'block'; 
+
+        z.style.display = 'none';            
+    } else if (document.getElementById(noAns).checked){
+     
+        if(disqualify1 == 'disqualify6'){
+            notEligibleAlert('Health enSuite Insomnia is not designed to address sleep disturbances related to pregnancy or caring for an infant.');
+        }
+
+        $('input[name=optradio7]').prop("checked",false);
+        document.getElementById('submit').style.display = 'none';   
+    }
+}
+
 
 
 function validateMedCheck(){
@@ -66,14 +262,38 @@ function symptomHideDispaly() {
 
     if (document.getElementById('noSymp').checked) {
         notEligibleAlert('Health enSuite Insomnia is unlikely to help you if you are not experiencing difficulty sleeping.');
-        x.style.display = 'none';
-        y.style.display = 'none';
-        z.style.display = 'block';            
+        //x.style.display = 'none';
+        //y.style.display = 'none';
+        //z.style.display = 'block';    
+        $('input[name=optSleep]').prop("checked",false); 
+
+        document.getElementById('fourthQ').style.display = 'none';     
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
+
     } else{
         validateMedCheck();
-        x.style.display = 'none';
+        //x.style.display = 'none';
         y.style.display = 'block'; 
         z.style.display = 'none';
+        $('input[name=optradio4]').prop("checked",false); 
+
+        document.getElementById('fifthQ').style.display = 'none';     
+        $('input[name=optradio5]').prop("checked",false);
+
+        document.getElementById('sixthQ').style.display = 'none';     
+        $('input[name=optradio6]').prop("checked",false);
+
+        document.getElementById('seventhQ').style.display = 'none';     
+        $('input[name=optradio7]').prop("checked",false);
     }
 }
 
@@ -156,11 +376,11 @@ function decideToConsent() {
         swal({
             title: "You opted to continue later!",
             text: "You will need to enter your referral code again when you are ready to continue.",
-            type: "warning",
+            type: "info",
             showCancelButton: true,
             confirmButtonColor: "#2087c8",
-            confirmButtonText: "No, Let me continue now",
-            cancelButtonColor: "#12850e",
+            confirmButtonText: "No, let me continue now",
+            cancelButtonColor: "#01AA73",
             cancelButtonText: "Yes, I will continue later",
             closeOnConfirm: false,
             closeOnCancel: false
@@ -185,7 +405,7 @@ function submitElligible(){
     var patientToken = window.localStorage.getItem("patToken");
     console.log(patientToken)
     //var sleepExperience = window.localStorage.getItem("sleepResponse");
-    let url = 'http://health.us-east-2.elasticbeanstalk.com/insomnia/v1/patient/eligibility';
+    let url = urlDomain + 'insomnia/v1/patient/eligibility';
 
     $.ajax({
         url: url,
@@ -255,7 +475,7 @@ function goBackConsent(firstDisplay, secondDisplay){
 }
 
 
-function displayField(checkbox, checkbox2, divName){
+function displayField(el, btnId, divId, qLength, checkbox, checkbox2, divName){
     var x = document.getElementById(checkbox);
     var y = document.getElementById(checkbox2);
     var z = document.getElementById(divName);
@@ -265,5 +485,21 @@ function displayField(checkbox, checkbox2, divName){
     }else{
         z.style.display = 'none';
     }
+
+    Check(el, btnId, divId, qLength);
 }
+
+function Check(el, btnId, divId, qLength) {
+    var button = document.getElementById(btnId);
+
+    var nbr_checked_radios = document.querySelectorAll(divId+' input[type=radio]:checked').length;
+    /*
+       'nbr_checked_radios==0' : mean if no radio button is checked 
+    */
+    if (nbr_checked_radios < qLength) {
+      button.disabled = true;
+    } else {
+      button.disabled = false;
+    }
+  }
 
